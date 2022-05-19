@@ -28,7 +28,9 @@ class Formulario extends Component {
               required
             />
         </div>
-        <Botao />
+        <Botao
+          texto="Adicionar"
+        />
       </form>
         );
   }
