@@ -11,6 +11,10 @@ function Lista() {
     {
       tarefa: 'Javascript',
       tempo: '01:00:00',
+    },
+    {
+      tarefa: 'Sass',
+      tempo: '02:00:00',
     }
   ];
 
