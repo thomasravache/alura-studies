@@ -2,6 +2,7 @@ import { Component, FormEvent } from 'react';
 import Botao from '../Botao';
 import style from './Formulario.module.scss';
 import { IFormularioState, IFormularioProps } from '../../types/interfaces';
+import { v4 as uuidv4 } from 'uuid';
 
 class Formulario extends Component<IFormularioProps, IFormularioState> {
   constructor(props: IFormularioProps) {
@@ -10,6 +11,9 @@ class Formulario extends Component<IFormularioProps, IFormularioState> {
     this.state = {
       tarefa: '',
       tempo: '00:00:00',
+      selecionado: false,
+      completado: false,
+      id: '',
     };
 
     this.adicionarTarefa = this.adicionarTarefa.bind(this);
@@ -17,7 +21,14 @@ class Formulario extends Component<IFormularioProps, IFormularioState> {
 
   adicionarTarefa(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    this.props.setTarefas((tarefasAntigas) => [...tarefasAntigas, { ...this.state }]);
+    this.props.setTarefas((tarefasAntigas) => [
+      ...tarefasAntigas, {
+        ...this.state,
+        selecionado: false,
+        completado: false,
+        id: uuidv4(),
+      }
+    ]);
     this.setState({ tarefa: '', tempo: '00:00:00' });
   }
 

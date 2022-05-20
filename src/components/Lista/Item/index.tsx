@@ -1,7 +1,8 @@
 import style from './Item.module.scss';
 import { ITarefa } from '../../../types/interfaces';
 
-function Item({ tarefa, tempo }: ITarefa) {
+function Item({ tarefa, tempo, selecionado, completado, id }: ITarefa) {
+  console.log('item atual', { tarefa, tempo, selecionado, completado, id });
   return(
     <li className={style.item}>
       <h3>{tarefa}</h3>

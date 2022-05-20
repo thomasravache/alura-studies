@@ -8,8 +8,8 @@ function Lista({ tarefas }: IListaProps) {
       <h2 onClick={() => {
       }}>Estudos do dia</h2>
       <ul>
-        {tarefas.map(({ tarefa, tempo } /* utilizar "item" para spread operator */, index) => (
-          <Item key={index} tarefa={tarefa} tempo={tempo} />
+        {tarefas.map((item /* utilizar "item" para spread operator */, index) => (
+          <Item {...item} key={item.id} />
           /*
             ou utilizar o spread operator para espalhar as propriedades dentro das props, tomar cuidado
             e atentar com as propriedades, todas tem que estar contidas dentro do componente pra funcionar
