@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './Lista.module.scss';
 import Item from './Item';
 
+interface ITarefa {
+  tarefa: string;
+  tempo: string;
+}
+
 function Lista() {
-  const tarefas = [
-    {
-      tarefa: 'React',
-      tempo: '02:00:00',
-    },
-    {
-      tarefa: 'Javascript',
-      tempo: '01:00:00',
-    },
-    {
-      tarefa: 'Sass',
-      tempo: '02:00:00',
-    }
-  ];
+  const [tarefas, setTarefas] = useState<ITarefa[]>([]);
+
+  useEffect(() => {
+    setTarefas([
+      {
+        tarefa: 'React',
+        tempo: '02:00:00',
+      },
+      {
+        tarefa: 'Javascript',
+        tempo: '01:00:00',
+      },
+      {
+        tarefa: 'Sass',
+        tempo: '02:00:00',
+      }
+    ]);
+  }, []);
 
   return(
     <aside className={style.listaTarefas}>
-      <h2>Estudos do dia</h2>
+      <h2 onClick={() => {
+        setTarefas([...tarefas, { tarefa: 'Estudar estado', tempo: '05:00:00' }]);
+      }}>Estudos do dia</h2>
       <ul>
         {tarefas.map(({ tarefa, tempo } /* utilizar "item" para spread operator */, index) => (
           <Item key={index} tarefa={tarefa} tempo={tempo} />
