@@ -9,7 +9,7 @@ class Formulario extends Component<IFormularioProps, IFormularioState> {
 
     this.state = {
       tarefa: '',
-      tempo: '00:00',
+      tempo: '00:00:00',
     };
 
     this.adicionarTarefa = this.adicionarTarefa.bind(this);
@@ -17,7 +17,8 @@ class Formulario extends Component<IFormularioProps, IFormularioState> {
 
   adicionarTarefa(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('state', this.state);
+    this.props.setTarefas((tarefasAntigas) => [...tarefasAntigas, { ...this.state }]);
+    this.setState({ tarefa: '', tempo: '00:00:00' });
   }
 
   render() {
@@ -49,7 +50,7 @@ class Formulario extends Component<IFormularioProps, IFormularioState> {
               required
             />
         </div>
-        <Botao>Adicionar</Botao>
+        <Botao type="submit">Adicionar</Botao>
       </form>
         );
   }
