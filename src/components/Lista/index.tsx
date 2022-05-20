@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { ITarefa } from '../../types/interfaces';
 import style from './Lista.module.scss';
 import Item from './Item';
-
-interface ITarefa {
-  tarefa: string;
-  tempo: string;
-}
 
 function Lista() {
   const [tarefas, setTarefas] = useState<ITarefa[]>([]);

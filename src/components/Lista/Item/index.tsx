@@ -1,6 +1,7 @@
 import style from './Item.module.scss';
+import { ITarefa } from '../../../types/interfaces';
 
-function Item({ tarefa, tempo }: { tarefa: string, tempo: string }) {
+function Item({ tarefa, tempo }: ITarefa) {
   return(
     <li className={style.item}>
       <h3>{tarefa}</h3>
