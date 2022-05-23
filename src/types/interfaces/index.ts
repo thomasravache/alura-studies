@@ -3,6 +3,7 @@ import IFormularioState, { IFormularioProps } from './Formulario';
 import IListaProps from './Lista';
 import IItemProps from './Item';
 import ICronometroProps from './Cronometro';
+import IRelogioProps from './Relogio';
 
 export type {
   ITarefa,
@@ -10,4 +11,5 @@ export type {
   IListaProps,
   IItemProps,
   ICronometroProps,
+  IRelogioProps,
 }
