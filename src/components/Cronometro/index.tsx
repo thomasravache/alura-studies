@@ -5,7 +5,7 @@ import { tempoParaSegundos } from '../../common/utils/time';
 import { ICronometroProps } from '../../types/interfaces';
 import { useState, useEffect } from 'react';
 
-function Cronometro({ selecionado }: ICronometroProps) {
+function Cronometro({ selecionado, finalizarTarefa }: ICronometroProps) {
   console.log('conversão: ', tempoParaSegundos('01:01:01'));
   const [tempo, setTempo] = useState<number>();
 
@@ -21,6 +21,7 @@ function Cronometro({ selecionado }: ICronometroProps) {
         setTempo(contador - 1);
         return regressiva(contador - 1);
       }
+      finalizarTarefa();
     }, 1000);
   }
 

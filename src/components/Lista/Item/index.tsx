@@ -4,8 +4,8 @@ import style from './Item.module.scss';
 function Item({ tarefa, tempo, selecionado, completado, id , selecionaTarefa }: IItemProps) {
   return(
     <li
-      className={`${style.item} ${selecionado ? style.itemSelecionado: ''}`}
-      onClick={(_e) => selecionaTarefa(
+      className={`${style.item} ${selecionado ? style.itemSelecionado: ''} ${completado ? style.itemCompletado : ''}`}
+      onClick={(_e) => !completado && selecionaTarefa(
         {
           tarefa,
           tempo,
@@ -17,6 +17,7 @@ function Item({ tarefa, tempo, selecionado, completado, id , selecionaTarefa }: 
     >
       <h3>{tarefa}</h3>
       <span>{tempo}</span>
+      {completado && <span className={style.concluido} aria-label="tarefa completada"></span>}
     </li>
   );
 }
