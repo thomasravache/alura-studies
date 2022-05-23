@@ -5,7 +5,7 @@ function Item({ tarefa, tempo, selecionado, completado, id , selecionaTarefa }: 
   console.log('item atual', { tarefa, tempo, selecionado, completado, id });
   return(
     <li
-      className={style.item}
+      className={`${style.item} ${selecionado ? style.itemSelecionado: ''}`}
       onClick={(_e) => selecionaTarefa(
         {
           tarefa,

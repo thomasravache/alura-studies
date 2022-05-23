@@ -13,7 +13,7 @@ function App() {
     setSelecionado(tarefaSelecionada);
     setTarefas((tarefasAnteriores) => tarefasAnteriores.map(tarefa => ({
       ...tarefa,
-      selecionado: true,
+      selecionado: tarefa.id === tarefaSelecionada.id ? true : false,
     })));
   }
 
