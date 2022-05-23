@@ -3,11 +3,17 @@ import style from './Botao.module.scss';
 
 type buttonType = "submit" | "button";
 
-class Botao extends React.Component<{  children: React.ReactNode, type?: buttonType }> {
+interface IBotaoProps {
+  children: React.ReactNode;
+  type?: buttonType;
+  onClick?(): void;
+}
+
+class Botao extends React.Component<IBotaoProps> {
   render() {
-    const { children, type = "button" } = this.props;
+    const { children, type = "button", onClick } = this.props;
     return(
-      <button className={style.botao} type={type}>
+      <button className={style.botao} type={type} onClick={onClick}>
         {children}
       </button>
     );
